@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
+    <script id="plane" type="text/html">
+      <a-entity class="link"
+        geometry="primitive: plane; height: 1; width: 1"
+        material="opacity: 0.6; shader: flat; src: ${thumb}"  
+        event-set__click="_target: #sky; _delay: 0; material.src: ${src}"
+        event-set__demo="_event: click; _target: #demo; src: ${demo}; geometry.height: ${hgt}; geometry.width: ${wdt}" >
+      </a-entity>
+    </script>
+    <script id="nav" type="text/html">
+      <a-entity class="link"
+        geometry="primitive: plane; height: 1; width: 1"
+        material="opacity: 0.6; shader: flat; src: ${thumb}"  
+        event-set__click="_target: #sky; _delay: 0; material.src: ${src}">
+      </a-entity>
+    </script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="hall" src="asset/360/hall.jpg" alt="" />
+        <img id="teamA" src="asset/360/teamA.jpg" alt="" />
+        <img id="teamB" src="asset/360/teamB.jpg" alt="" />
+        <img id="teamC" src="asset/360/teamC.jpg" alt="" />
+        <img id="teamD" src="asset/360/teamD.jpg" alt="" />
+        <img id="corridor" src="asset/360/corridor.jpg" alt="" />
+        <img id="hallTop" src="asset/360/hallTop.jpg" alt="" />
+        <img id="t_teamA" src="asset/thumb/teamA.jpg" alt="" />
+        <img id="t_teamB" src="asset/thumb/teamB.jpg" alt="" />
+        <img id="t_teamC" src="asset/thumb/teamC.jpg" alt="" />
+        <img id="t_teamD" src="asset/thumb/teamD.jpg" alt="" />
+        <img id="t_hall" src="asset/thumb/hall.jpg" alt="" />
+        <img id="t_topHall" src="asset/thumb/topHall.jpg" alt="" />
+        <img id="t_corridor" src="asset/thumb/corridor.jpg" alt="" />
+        <video controls muted id="fashable" autoplay loop="true" src="asset/videos/Fashabledemo.m4v"></video>
+        <video id="efeupinho" controls muted autoplay loop="true" src="asset/videos/EfeupinhoDemo.m4v"></video>
+        <video id="signalcheck" controls muted autoplay loop="true" src="asset/videos/Signalcheckdemo.mp4"></video>
+        <video id="quizz" controls muted autoplay loop="true" src="asset/videos/Quizzerodemo.mp4"></video>
+      </a-assets>
+
+      
+       <a-entity id="links" layout="type: line; margin: 1.5" position="-2.25 1.5 -4">
+        <a-entity template="src: #plane" data-thumb="#t_teamA" data-src="#teamA" data-demo="#fashable" data-hgt="20" data-wdt="10"></a-entity>
+        <a-entity template="src: #plane" data-thumb="#t_teamB" data-src="#teamB" data-demo="#efeupinho" data-hgt="9" data-wdt="16"></a-entity>
+        <a-entity template="src: #plane" data-thumb="#t_teamC" data-src="#teamC" data-demo="#signalcheck" data-hgt="9" data-wdt="16"></a-entity>
+        <a-entity template="src: #plane" data-thumb="#t_teamD" data-src="#teamD" data-demo="#quizz" data-hgt="9" data-wdt="16"></a-entity>
+      </a-entity>
+
+      <a-entity id="secondrow" layout="type: line; margin: 1.5" position="-1.5 0 -4">
+        
+        <a-entity template="src: #nav" data-thumb="#t_topHall" data-src="#hallTop"></a-entity>
+        <a-entity template="src: #nav" data-thumb="#t_corridor" data-src="#corridor"></a-entity>
+        <a-entity template="src: #nav" data-thumb="#t_hall" data-src="#hall"></a-entity>
+      </a-entity>
+
+
+      <a-video id="demo" src="#mass" width="16" height="9" position="0 0 15" rotation="0 180 0"></a-video>
+      
+
+
+      <a-sky id="sky" src="#hall"> </a-sky>
+
+      <a-camera>
+       
+        <a-cursor
+          id="cursor">
+          </a-cursor>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
