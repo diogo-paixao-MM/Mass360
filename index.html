@@ -1,5 +1,8 @@
 <html>
   <head>
+    <link rel="icon" 
+      type="image/png" 
+      href="asset/favicon.png">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
@@ -16,13 +19,20 @@
       <a-entity class="link"
         geometry="primitive: plane; height: 1; width: 1"
         material="opacity: 0.6; shader: flat; src: ${thumb}"  
-        event-set__click="_target: #sky; _delay: 0; material.src: ${src}">
+        event-set__click="_target: #sky; _delay: 0; material.src: ${src}"
+        event-set__demo="_event: click; _target: #demo; src: #mass; geometry.height: 9; geometry.width: 16">
       </a-entity>
-    </script>
+    </script>  
   </head>
   <body>
-    <a-scene>
-      <a-assets timeout="auto">
+    <a-scene>        
+
+      <a-assets timeout="5000" >
+        <a-video id="mass" autoplay loop="true" src="asset/videos/mass.mp4"></a-video>
+        <a-video id="fashable" autoplay loop="true"  src="asset/videos/Fashabledemo.m4v"></a-video>
+        <a-video id="efeupinho"  autoplay loop="true" src="asset/videos/Efeupinhodemo.m4v"></a-video>
+        <a-video id="signalcheck"  autoplay loop="true" src="asset/videos/Signalcheckdemo.mp4"></a-video>
+        <a-video id="quizz"  autoplay loop="true" src="asset/videos/Quizzerodemo.mp4"></a-video> 
         <img id="hall" src="asset/360/hall.jpg" alt="" />
         <img id="teamA" src="asset/360/teamA.jpg" alt="" />
         <img id="teamB" src="asset/360/teamB.jpg" alt="" />
@@ -37,10 +47,6 @@
         <img id="t_hall" src="asset/thumb/hall.jpg" alt="" />
         <img id="t_topHall" src="asset/thumb/topHall.jpg" alt="" />
         <img id="t_corridor" src="asset/thumb/corridor.jpg" alt="" />
-        <video id="fashable" preload="true" autoplay loop="true"  src="asset/videos/Fashabledemo.m4v"></video>
-        <video id="efeupinho" preload="true" autoplay loop="true" src="asset/videos/Efeupinhodemo.m4v"></video>
-        <video id="signalcheck" preload="true" autoplay loop="true" src="asset/videos/Signalcheckdemo.mp4"></video>
-        <video id="quizz" preload="true" autoplay loop="true" src="asset/videos/Quizzerodemo.mp4"></video>
       </a-assets>
 
       
